@@ -1,0 +1,136 @@
+Break statement in Java
+Last Updated : 30 Mar, 2023
+Break Statement is a loop control statement that is used to terminate the loop. As soon as the break statement is encountered from within a loop, the loop iterations stop there, and control returns from the loop immediately to the first statement after the loop. 
+Syntax: 
+
+break;
+Basically, break statements are used in situations when we are not sure about the actual number of iterations for the loop or we want to terminate the loop based on some condition.  
+
+
+
+Break: In Java, the break is majorly used for: 
+
+Terminate a sequence in a switch statement (discussed above).
+To exit a loop.
+Used as a “civilized” form of goto.
+Use of break in Switch cases
+
+
+import java.io.*;
+// Use of break statement in switch
+class GFG {
+    public static void main (String[] args) {
+      //assigning n as integer value
+      int n = 1;
+      //passing n to switch
+      // it will check n and display output accordingly
+      switch(n){
+        case 1: 
+          System.out.println("GFG");
+          break;
+        case 2:
+          System.out.println("Second Case");
+          break;
+        default:
+          System.out.println("default case");
+      }
+    }
+}
+Output
+GFG
+Using break to exit a Loop
+
+Using break, we can force immediate termination of a loop, bypassing the conditional expression and any remaining code in the body of the loop. 
+Note: Break, when used inside a set of nested loops, will only break out of the innermost loop.  
+
+using-break-to-exit-a-loop-in-java
+
+Example:
+
+
+// Java program to illustrate using
+// break to exit a loop
+class BreakLoopDemo {
+    public static void main(String args[])
+    {
+        // Initially loop is set to run from 0-9
+        for (int i = 0; i < 10; i++) {
+            // terminate loop when i is 5.
+            if (i == 5)
+                break;
+ 
+            System.out.println("i: " + i);
+        }
+        System.out.println("Loop complete.");
+    }
+}
+Output
+i: 0
+i: 1
+i: 2
+i: 3
+i: 4
+Loop complete.
+Time Complexity: O(1)
+
+Auxiliary Space : O(1)
+
+Using break as a Form of Goto
+
+Java does not have a goto statement because it provides a way to branch in an arbitrary and unstructured manner. Java uses the label. A Label is used to identifies a block of code. 
+Syntax: 
+
+label:
+{
+  statement1;
+  statement2;
+  statement3;
+  .
+  .
+}
+Now, break statement can be use to jump out of target block. 
+Note: You cannot break to any label which is not defined for an enclosing block. 
+Syntax:  
+
+break label;
+Example: 
+
+
+// Java program to illustrate 
+// using break with goto
+class BreakLabelDemo {
+    public static void main(String args[])
+    {
+        boolean t = true;
+ 
+    // label first
+    first : {
+       
+    // Illegal statement here 
+    // as label second is not
+    // introduced yet break second;
+    second : {
+    third : {
+        // Before break
+        System.out.println("Before the break statement");
+ 
+        // break will take the control out of
+        // second label
+        if (t)
+            break second;
+        System.out.println("This won't execute.");
+    }
+        System.out.println("This won't execute.");
+    }
+ 
+        // First block
+        System.out.println("This is after second block.");
+    }
+    }
+}
+Output
+Before the break statement
+This is after second block.
+Time Complexity: O(1)
+
+Auxiliary Space : O(1)

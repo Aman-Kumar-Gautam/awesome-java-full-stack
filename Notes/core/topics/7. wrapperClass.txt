@@ -1,0 +1,269 @@
+------------------------------------------------------------------------------------
+Wrapper Classes in Java
+------------------------------------------------------------------------------------
+A Wrapper class in Java is a class whose object wraps or contains primitive data types. When we create an object to a wrapper class, it contains a field and in this field, we can store primitive data types. In other words, we can wrap a primitive value into a wrapper class object. Let’s check on the wrapper classes in Java with 
+
+------------------------------------------------------------------------------------
+Need of Wrapper Classes
+------------------------------------------------------------------------------------
+There are certain needs for using the Wrapper class in Java as mentioned below:
+
+1. They convert primitive data types into objects. Objects are needed if we wish to modify the arguments passed into a method (because primitive types are passed by value).
+2. The classes in java.util package handles only objects and hence wrapper classes help in this case also.
+3. Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference types) and not primitive types.
+
+An object is needed to support synchronization in multithreading.
+------------------------------------------------------------------------------------
+Advantages of Wrapper Classes
+------------------------------------------------------------------------------------
+Collections allowed only object data.
+On object data we can call multiple methods compareTo(), equals(), toString()
+Cloning process only objects
+Object data allowed null values.
+Serialization can allow only object data.
+Below are given examples of wrapper classes in Java with their corresponding Primitive data types in Java.
+
+
+------------------------------------------------------------------------------------
+Primitive Data Types and their Corresponding Wrapper Class
+------------------------------------------------------------------------------------
+Primitive Data Type               Wrapper Class
+
+char                                Character                              
+
+byte                                Byte
+
+short                               Short
+
+int                                 Integer
+
+long                                Long
+
+float                               Float
+
+double                              Double
+
+boolean                             Boolean
+
+------------------------------------------------------------------------------------
+Autoboxing and Unboxing
+------------------------------------------------------------------------------------
+1. Autoboxing
+The automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of int to Integer, long to Long, double to Double, etc. 
+
+Example:
+
+
+// Java program to demonstrate Autoboxing
+ 
+import java.util.ArrayList;
+class Autoboxing {
+    public static void main(String[] args)
+    {
+        char ch = 'a';
+ 
+        // Autoboxing- primitive to Character object
+        // conversion
+        Character a = ch;
+ 
+        ArrayList<Integer> arrayList
+            = new ArrayList<Integer>();
+ 
+        // Autoboxing because ArrayList stores only objects
+        arrayList.add(25);
+ 
+        // printing the values from object
+        System.out.println(arrayList.get(0));
+    }
+}
+Output
+25
+
+------------------------------------------------------------------------------------
+2. Unboxing
+------------------------------------------------------------------------------------
+It is just the reverse process of autoboxing. Automatically converting an object of a wrapper class to its corresponding primitive type is known as unboxing. For example – conversion of Integer to int, Long to long, Double to double, etc. 
+
+Example:
+
+
+// Java program to demonstrate Unboxing
+import java.util.ArrayList;
+ 
+class Unboxing {
+    public static void main(String[] args)
+    {
+        Character ch = 'a';
+ 
+        // unboxing - Character object to primitive
+        // conversion
+        char a = ch;
+ 
+        ArrayList<Integer> arrayList
+            = new ArrayList<Integer>();
+        arrayList.add(24);
+ 
+        // unboxing because get method returns an Integer
+        // object
+        int num = arrayList.get(0);
+ 
+        // printing the values from primitive data types
+        System.out.println(num);
+    }
+}
+Output
+24
+
+------------------------------------------------------------------------------------
+Java Wrapper Classes Example
+------------------------------------------------------------------------------------
+// Java program to demonstrate Wrapping and UnWrapping
+// in Classes
+import java.io.*;
+ 
+class GFG {
+    public static void main(String[] args)
+    {
+        // byte data type
+        byte a = 1;
+ 
+        // wrapping around Byte object
+        Byte byteobj = new Byte(a);
+        // Use with Java 9
+        // Byte byteobj = Byte.valueOf(a);
+ 
+        // int data type
+        int b = 10;
+ 
+        // wrapping around Integer object
+        Integer intobj = new Integer(b);
+        // Use with Java 9
+        // Integer intobj = Integer.valueOf(b);
+ 
+        // float data type
+        float c = 18.6f;
+ 
+        // wrapping around Float object
+        Float floatobj = new Float(c);
+        // Use with Java 9
+        // Float floatobj = Float.valueOf(c);
+ 
+        // double data type
+        double d = 250.5;
+ 
+        // Wrapping around Double object
+        Double doubleobj = new Double(d);
+        // Use with Java 9
+        // Double doubleobj = Double.valueOf(d);
+ 
+        // char data type
+        char e = 'a';
+ 
+        // wrapping around Character object
+        Character charobj = e;
+ 
+        // printing the values from objects
+        System.out.println(
+            "Values of Wrapper objects (printing as objects)");
+        System.out.println("\nByte object byteobj: "
+                           + byteobj);
+        System.out.println("\nInteger object intobj: "
+                           + intobj);
+        System.out.println("\nFloat object floatobj: "
+                           + floatobj);
+        System.out.println("\nDouble object doubleobj: "
+                           + doubleobj);
+        System.out.println("\nCharacter object charobj: "
+                           + charobj);
+ 
+        // objects to data types (retrieving data types from
+        // objects) unwrapping objects to primitive data
+        // types
+        byte bv = byteobj;
+        int iv = intobj;
+        float fv = floatobj;
+        double dv = doubleobj;
+        char cv = charobj;
+ 
+        // printing the values from data types
+        System.out.println(
+            "\nUnwrapped values (printing as data types)");
+        System.out.println("\nbyte value, bv: " + bv);
+        System.out.println("\nint value, iv: " + iv);
+        System.out.println("\nfloat value, fv: " + fv);
+        System.out.println("\ndouble value, dv: " + dv);
+        System.out.println("\nchar value, cv: " + cv);
+    }
+}
+Output
+Values of Wrapper objects (printing as objects)
+
+Byte object byteobj: 1
+
+Integer object intobj: 10
+
+Float object floatobj: 18.6
+
+Double object doubleobj: 250.5
+
+Character object charobj: a
+
+Unwrapped values (printing as data types)
+
+byte value, bv: 1
+
+int value, iv: 10
+
+float value, fv: 18.6
+
+double value, dv: 250.5
+
+char value, cv: a
+
+------------------------------------------------------------------------------------
+Custom Wrapper Classes in Java
+Java Wrapper classes wrap the primitive data types. We can create a class that wraps data inside it. So let us check how to create our own custom wrapper class in Java. It can be implemented for creating certain structures like queues, stacks, etc.
+
+Example:
+
+
+// Java Program to implement
+// Custom wrapper class
+import java.io.*;
+ 
+// wrapper class
+class Maximum {
+    private int maxi = 0;
+    private int size = 0;
+ 
+    public void insert(int x)
+    {
+        this.size++;
+        if (x <= this.maxi)
+            return;
+        this.maxi = x;
+    }
+ 
+    public int top() { return this.maxi; }
+ 
+    public int elementNumber() { return this.size; }
+};
+ 
+// 
+class GFG {
+    public static void main(String[] args)
+    {
+        Maximum x = new Maximum();
+        x.insert(12);
+        x.insert(3);
+        x.insert(23);
+ 
+        System.out.println("Maximum element: " + x.top());
+        System.out.println("Number of elements inserted: "
+                           + x.elementNumber());
+    }
+}
+Output
+Maximum element: 23
+Number of elements inserted: 3
+

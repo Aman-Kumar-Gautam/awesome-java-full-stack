@@ -1,0 +1,291 @@
+Formatted Output in Java using printf()
+   
+Sometimes in programming, it is essential to print the output in a given specified format. Most users are familiar with the printf function in C. Let us discuss how we can Formatting Output with printf() in Java in this article.
+
+Formatting Using Java Printf()
+printf() uses format specifiers for formatting. There are certain data types are mentioned below:
+
+For Number Formatting
+Formatting Decimal Numbers
+For Boolean Formatting
+For String Formatting
+For Char Formatting
+For Date and Time Formatting
+i). For Number Formatting
+The number itself includes Integer, Long, etc. The formatting Specifier used 
+is %d.
+
+Below is the implementation of the above method:
+
+// Java Program to demonstrate 
+// Use of printf to 
+// Formatting Integer 
+import java.io.*; 
+  
+// Driver Class 
+class GFG { 
+      // main function 
+    public static void main (String[] args) { 
+        int a=10000; 
+            
+          //System.out.printf("%.d%n",a); 
+          System.out.printf("%,d%n",a); 
+    } 
+} 
+Output
+10,000
+
+
+ii). For Decimal Number Formatting
+Decimal Number Formatting can be done using print() and format specifier %f .
+
+Below is the implementation of the above method:
+
+// Java Programs to demonstrate 
+// Use of Printf() for decimal 
+// Number Formatting 
+import java.io.*; 
+  
+// Driver Class 
+class GFG { 
+    // main function 
+    public static void main(String[] args) 
+    { 
+        // declaring double 
+        double a = 3.14159265359; 
+  
+        // Printing Double Value with 
+        // different Formatting 
+        System.out.printf("%f\n", a); 
+        System.out.printf("%5.3f\n", a); 
+        System.out.printf("%5.2f\n", a); 
+    } 
+}
+Output
+3.141593
+3.142
+ 3.14
+
+
+iii). For Boolean Formatting
+Boolean Formatting can be done using printf and ( ‘%b’ or ‘%B’ ) depending upon the result needed.
+
+Below is the implementation of the above method:
+
+// Java Programs to demonstrate 
+// Use of Printf() for decimal 
+// Boolean Formatting 
+import java.io.*; 
+  
+// Driver Function 
+class GFG { 
+    // main function 
+    public static void main(String[] args) 
+    { 
+        int a = 10; 
+        Boolean b = true, c = false; 
+        Integer d = null; 
+  
+        // Fromatting Done using printf 
+        System.out.printf("%b\n", a); 
+        System.out.printf("%B\n", b); 
+        System.out.printf("%b\n", c); 
+        System.out.printf("%B\n", d); 
+    } 
+}
+Output
+true
+TRUE
+false
+FALSE
+
+
+iv). For Char Formatting
+Char Formatting is easy to understand as it need printf() and Charracter format specifier used are ‘%c’ and ‘%C’.
+
+Below is the implementation of the above method:
+
+// Java Program to Formatt 
+// 
+import java.io.*; 
+  
+// Driver Class 
+class GFG { 
+    // main function 
+    public static void main(String[] args) 
+    { 
+        char c = 'g'; 
+  
+        // Formatting Done 
+        System.out.printf("%c\n", c); 
+  
+        // Converting into Uppercase 
+        System.out.printf("%C\n", c); 
+    } 
+}
+Output
+g
+G
+
+
+v). For String Formatting
+String Formatting requires the knowledge of Strings and format specifier used ‘%s’ and ‘%S’.
+
+Below is the implementation of the above method:
+
+// Java Program to implement 
+// Printf() for String Formatting 
+import java.io.*; 
+  
+// Driver Class 
+class GFG { 
+    // main function 
+    public static void main(String[] args) 
+    { 
+        String str = "geeksforgeeks"; 
+  
+        // Formatting from lowercase to 
+        // Uppercase 
+        System.out.printf("%s \n", str); 
+        System.out.printf("%S \n", str); 
+  
+        str = "GFG"; 
+        // Vice-versa not possible 
+        System.out.printf("%S \n", str); 
+        System.out.printf("%s \n", str); 
+    } 
+}
+Output
+geeksforgeeks 
+GEEKSFORGEEKS 
+GFG 
+GFG 
+
+
+vi). For Date and Time Formatting
+Formatting of Date and Time is not as easy as the data-type used above. It uses more than simple format specifier knowledge can be observed in the example mentioned below.
+
+Below is the implementation of the above method:
+
+// Java Program to demonstrate use of 
+// printf() for formatting Date-time 
+import java.io.*; 
+import java.util.*; 
+  
+// Driver Class 
+class GFG { 
+    // main function 
+    public static void main(String[] args) 
+    { 
+        Date time = new Date(); 
+  
+        System.out.printf("Current Time: %tT\n", time); 
+  
+        // Another Method with all of them Hour 
+        // minutes and seconds seperated 
+        System.out.printf("Hours: %tH  Minutes: %tM Seconds: %tS\n",  
+                          time,time, time); 
+  
+        // Another Method to print the time 
+        // Followed by am/pm , time in milliseconds 
+        // nanoseconds and time-zone offset 
+        System.out.printf("%1$tH:%1$tM:%1$tS %1$tp %1$tL %1$tN %1$tz %n", 
+            time); 
+    } 
+}
+Output
+Current Time: 11:32:36
+Hours: 11  Minutes: 32 Seconds: 36
+11:32:36 am 198 198000000 +0000 
+
+
+Note: System.out.format() is equivalent to printf() and can also be used.
+
+Other Methods for Formatting
+1. Formatting using DecimalFormat class 
+DecimalFormat is used to format decimal numbers.
+
+Below is the implementation of the above method:
+
+// Java program to demonstrate working of DecimalFormat 
+import java.text.DecimalFormat; 
+  
+// Driver Class 
+class JavaFormatter2 { 
+    // main function   
+    public static void main(String args[]) 
+    { 
+        double num = 123.4567; 
+  
+        // prints only numeric part of a floating number 
+        DecimalFormat ft = new DecimalFormat("####");      
+        System.out.println("Without fraction part: num = "
+                           + ft.format(num)); 
+  
+        // this will print it upto 2 decimal places 
+        ft = new DecimalFormat("#.##");       
+        System.out.println("Formatted to Give precision: num = "
+                            + ft.format(num)); 
+  
+        // automatically appends zero to the rightmost part 
+        // of decimal instead of #,we use digit 0 
+        ft = new DecimalFormat("#.000000"); 
+        System.out.println("appended zeroes to right: num = "
+                            + ft.format(num)); 
+  
+        // automatically appends zero to the leftmost of 
+        // decimal number instead of #,we use digit 0 
+        ft = new DecimalFormat("00000.00"); 
+        System.out.println("formatting Numeric part : num = "
+                            + ft.format(num)); 
+  
+        // formatting money in dollars 
+        double income = 23456.789;       
+        ft = new DecimalFormat("$###,###.##"); 
+        System.out.println("your Formatted Dream Income : "
+                             + ft.format(income)); 
+    } 
+}
+Output
+Without fraction part: num = 123
+Formatted to Give precision: num = 123.46
+appended zeroes to right: num = 123.456700
+formatting Numeric part : num = 00123.46
+your Formatted Dream Income : $23,456.79
+
+
+2. Formatting dates and parsing using SimpleDateFormat class
+This class is present in java.text package. 
+
+Below is the implementation of the above method:
+
+// Java program to demonstrate working of SimpleDateFormat 
+import java.text.ParseException; 
+import java.text.SimpleDateFormat; 
+import java.util.Date; 
+  
+// Driver Class 
+class Formatter3 { 
+    // main function 
+    public static void main(String args[]) 
+        throws ParseException 
+    { 
+        // Formatting as per given pattern in the argument 
+        SimpleDateFormat ft 
+            = new SimpleDateFormat("dd-MM-yyyy"); 
+        
+        String str = ft.format(new Date()); 
+        System.out.println("Formatted Date : " + str); 
+  
+        // parsing a given String 
+        str = "02/18/1995"; 
+        ft = new SimpleDateFormat("MM/dd/yyyy"); 
+        Date date = ft.parse(str); 
+  
+        // this will print the date as per parsed string 
+        System.out.println("Parsed Date : " + date); 
+    } 
+}
+Output
+Formatted Date : 24-01-2022
+Parsed Date : Sat Feb 18 00:00:00 UTC 1995
